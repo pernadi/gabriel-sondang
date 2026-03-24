@@ -22,9 +22,9 @@ setInterval(() => {
 //Change background image for hero section
 // Daftar gambar background
 const backgrounds = [
-  'assets/wedding_images/prewed_1.jpg',
-  'assets/wedding_images/prewed_2.jpg',
-  'assets/wedding_images/prewed_3.jpg',
+  'assets/wedding/wedding_17.jpg',
+  'assets/wedding/wedding_18.jpg',
+  'assets/wedding/wedding_19.jpg',
 ];
 
 let current = 0;

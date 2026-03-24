@@ -288,8 +288,8 @@ body {
   }
 
   .frame {
-    width: 130px;
-    height: 130px;
+    width: 500px;
+    height: 500px;
     top: -60px;
   }
 
@@ -563,9 +563,9 @@ body {
       padding-right: 20px;
       border-top-left-radius: 50px;
       border-top-right-radius: 50px;
-      padding-bottom: 200px;
+      padding-bottom: 100px;
       background: url("assets/flower_frame.png") center/cover no-repeat;
-      background-color: rgb(109, 109, 109);
+      background-color: rgb(255, 255, 255);
     }
     .galery-section::before
     {
@@ -715,7 +715,8 @@ body {
 }
 
 .gift-section {
-  background-color: rgb(109, 109, 109);
+  background: url("assets/frame_flower.png") center/cover no-repeat;
+  background-color: rgb(254, 252, 252);
   padding: 40px 20px;
   height: auto;
   border-top-left-radius: 50px;
@@ -777,7 +778,7 @@ body {
   align-items: flex-end;
   justify-content: center;
   padding-bottom: 200px;
-      background: url("assets/wedding_images/prewed_4.JPG") center/cover no-repeat;
+  background: url("assets/wedding/wedding_12.JPG") center/cover no-repeat;
 }
 .end-section .overlay-end {
   position: absolute;
@@ -806,4 +807,12 @@ body {
   );
 
   z-index: 1;
+}
+
+.text-verse-end {
+  font-size: 0.9rem;
+  color: #ffffff;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
 }
