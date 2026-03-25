@@ -1,11 +1,12 @@
 /* Base (optional biar konsisten) */
 .fade {
     opacity: 0;
+    will-change: transform, opacity;
 }
 
 /* Fade In */
 .fade-in.active {
-    animation: fadeIn 0.8s ease forwards;
+    animation: fadeIn 2.0s ease forwards;
 }
 
 @keyframes fadeIn {
@@ -15,7 +16,7 @@
 
 /* Fade Up */
 .fade-up.active {
-    animation: fadeUp 0.8s ease forwards;
+    animation: fadeUp 2.0s ease forwards;
 }
 
 @keyframes fadeUp {
@@ -31,7 +32,7 @@
 
 /* Fade Down */
 .fade-down.active {
-    animation: fadeDown 0.8s ease forwards;
+    animation: fadeDown 2.0s ease forwards;
 }
 
 @keyframes fadeDown {
@@ -47,7 +48,7 @@
 
 /* Fade Left */
 .fade-left.active {
-    animation: fadeLeft 0.8s ease forwards;
+    animation: fadeLeft 2.0s ease forwards;
 }
 
 @keyframes fadeLeft {
@@ -63,7 +64,7 @@
 
 /* Fade Right */
 .fade-right.active {
-    animation: fadeRight 0.8s ease forwards;
+    animation: fadeRight 2.0s ease forwards;
 }
 
 @keyframes fadeRight {
@@ -79,7 +80,7 @@
 
 /* Fade Zoom (scale) */
 .fade-zoom.active {
-    animation: fadeZoom 0.8s ease forwards;
+    animation: fadeZoom 2.0s ease forwards;
 }
 
 @keyframes fadeZoom {

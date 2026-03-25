@@ -53,3 +53,18 @@ changeBackground();
 // interval
 setInterval(changeBackground, 5000);
 
+//animation fade
+const elements = document.querySelectorAll('.fade');
+const scrollContainer = document.querySelector('.phone-screen');
+
+function showOnScroll() {
+  elements.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 50) {
+      el.classList.add('active');
+    }
+  });
+}
+
+scrollContainer.addEventListener('scroll', showOnScroll);
+window.addEventListener('load', showOnScroll);
