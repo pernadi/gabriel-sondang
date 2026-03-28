@@ -53,3 +53,17 @@ const boxes = document.querySelectorAll('.hero-section');
 
     // Tampilkan di elemen HTML
     document.getElementById("guestName").textContent = nama;
+
+
+    //load screen
+    window.addEventListener('load', function() {
+      const loadingScreen = document.getElementById('loading-screen');
+      
+      // Fade out loading screen
+      loadingScreen.style.opacity = '0';
+      
+      // Hapus dari DOM setelah transisi selesai
+      setTimeout(() => {
+        loadingScreen.style.display = 'none';
+      }, 600);
+    });

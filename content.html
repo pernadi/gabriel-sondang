@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="animation.css" />
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   
@@ -16,6 +17,12 @@
 
 <!-- Background luar -->
 
+<div id="loading-screen">
+    <div style="text-align: center;">
+      <div class="loader"></div>
+      <div class="loading-text">Loading...</div>
+    </div>
+</div>
 
 <div class="phone-frame">
   <div class="phone-screen">
@@ -26,93 +33,106 @@
       <!-- HERO -->
       <section class="section-hero" id="hero">
         <div class="overlay"></div>
-        <div class="bg-layer bg1"></div>
-        <div class="bg-layer bg2"></div>
+        <div class="content-top show-content text-center">
+          <h5 class="text-holy fade fade-up">The Wedding Of</h5>
+          <h1 class="text-style fade fade-in">Gabriel <span class="heart">&hearts;</span> Sondang</h1>
+        </div>
 
-        <div class="content show-content text-center">
-          <div class="photo-frame fade fade-in">
-            <img src="assets/wedding/wedding_10.JPG">
+        <div class="content-bottom">
+          <div class="countdown-wrapper fade fade-left">
+            <div class="countdown-card"><span id="days">0</span><p>Hari</p></div>
+            <div class="countdown-card"><span id="hours">0</span><p>Jam</p></div>
+            <div class="countdown-card"><span id="minutes">0</span><p>Menit</p></div>
+            <div class="countdown-card"><span id="seconds">0</span><p>Detik</p></div>
           </div>
 
-          <h5 class="text-holy fade fade-up">The Wedding Of :</h5>
-          <h2 class="text-style fade fade-left delay-1">
-            Gabriel <span class="heart">&hearts;</span> Sondang
-          </h2>
-          <h5 class="text-holy fade fade-down">11 April 2026</h5>
-
-          <hr>
-          
+          <div class="hero-word">
+            <p class="text-holy fade fade-right">
+              Atas Rahmat Tuhan Yang Maha Esa, kami bermaksud mengundang Anda di acara Kami. Merupakan suatu kehormatan dan kebahagiaan bagi kami sekeluarga, apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu
+            </p>
+          </div>
         </div>
       </section>
 
       <!-- Word -->
       <section class="word-section">
         <br><br>
-        <h1 class="fade fade-in">G <span class="heart">&hearts;</span>S</h1>
-
-        <br><br><br>
 
         <p class="text-verse fade fade-up">
           "Karena itu seorang laki-laki akan meninggalkan ayahnya dan ibunya, dan akan bersatu dengan istrinya: dan mereka akan menjadi satu daging" <br>(Kejadian 2:24)
         </p>
         <br><br>
-        <p class="text-verse fade fade-down">
-          HITUNG MUNDUR MENUJU HARI BAHAGIA KAMI
-        </p>
-        <p class="text-date fade fade-right">
-          11.04.2026
-        </p>
-        <div class="countdown-wrapper fade fade-left">
-          <div class="countdown-card"><span id="days">0</span><p>Hari</p></div>
-          <div class="countdown-card"><span id="hours">0</span><p>Jam</p></div>
-          <div class="countdown-card"><span id="minutes">0</span><p>Menit</p></div>
-          <div class="countdown-card"><span id="seconds">0</span><p>Detik</p></div>
-        </div>
-        <br><br><br>
       </section>
 
 
       <!-- COUPLE -->
       <section class="couple-section">
 
-        <img src="assets/frame_image/gorga_framet.png" class="gorga-top" alt="">
+        <div class="container">
 
-        <h2 class="title fade fade-in">Pengantin</h2>
-
-        <div class="couple-container">
-
-          
-          <div class="person-card fade fade-up">
-            <div class="frame fade fade-zoom">
-              <img src="assets/wedding/wedding_23.JPG">
+          <!-- Baris Pertama -->
+          <div class="row mb-5 align-items-center">
+            
+            <div class="col-5 person-card fade fade-down">
+              <div class="fade fade-zoom">
+                <h5>Gabriel Benni Pernadi Panjaitan, S.Tr.Kom</h5>
+                <hr style="border: 1px dashed #2c2c2c;">
+                <p>Putra dari Bapak M.Panjaitan & Ibu F.P.Silalahi</p>
+              </div>
             </div>
-            <h3 class="name fade fade-right">Gabriel Benni Pernadi Panjaitan, S.Tr.Kom</h3>
-            <p class="desc fade fade-left">Putra dari Bapak M. Panjaitan & Ibu F.P. Silalahi</p>
+
+            <div class="col-7 fade fade-down">
+              <div class="frame fade fade-zoom">
+                <img src="assets/wedding/wedding_23.JPG" 
+                    alt="Wedding 23" 
+                    class="img-fluid">
+              </div>
+            </div>
+
+          </div>
+          
+          <div class="row mb-2">
+            <div class="col-lg text-center fade fade-up">
+
+            <h3 class="fade fade-in">G <span class="heart">&hearts;</span>S</h3>
+
+          </div>
           </div>
 
-          
-          <div class="person-card fade fade-down">
-            <div class="frame fade fade-zoom">
-              <img src="assets/wedding/wedding_24.JPG">
+          <!-- Baris Kedua -->
+          <div class="row mb-5 align-items-center">
+  
+          <div class="col-5 person-card fade fade-down">
+            <div class="fade fade-zoom">
+              <h5>Sondang Jelita Sipayung, S.Kom</h5>
+              <hr style="border: 1px dashed #2c2c2c;">
+              <p>Putri dari Bapak M.Sipayung & Ibu R.D.Lumban Tobing</p>
             </div>
-            <h3 class="name fade fade-right">Sondang Jelita Sipayung, S.Kom</h3>
-            <p class="desc fade fade-left">Putri dari Bapak M. Sipayung & Ibu R.D. Lumban Tobing</p>
+          </div>
+
+          <div class="col-7 fade fade-down">
+            <div class="frame fade fade-zoom">
+              <img src="assets/wedding/wedding_24.JPG" 
+                  alt="Wedding 24" 
+                  class="img-fluid">
+            </div>
           </div>
 
         </div>
 
-        <img src="assets/frame_image/gorga_framet.png" class="gorga-bottom" alt="">
+        </div>
 
       </section>
 
       <!-- EVENT -->
       <section class="date-section">
 
-        <div>
-          <img src="assets/bg-title.png" class="bg-title fade fade-right" alt="">
-          <h4 class="title-date fade fade-zoom">SAVE the DATE</h4>
-          <img src="assets/bg-title.png" class="bg-title rotate fade fade-left" alt="">
-        </div>
+        <p class="text-verse fade fade-up">
+          "Demikianlah mereka bukan lagi dua, melainkan satu. Karena itu, apa yang telah dipersatukan Allah, tidak boleh diceraikan manusia."
+        </p>
+        <p class="text-verse fade fade-up">
+          Matius 19:6
+        </p>
 
         <div class="date-frame fade fade-down">
           <h1 class="date-title fade fade-zoom">Pemberkatan</h1>
@@ -121,9 +141,14 @@
           <h4 class="text-date fade fade-zoom">11 | April | 2026</h4>
           <p class="fade fade-zoom">10:00 - Selesai</p>
           <p class="fade fade-zoom">Gereja HKBP Balige</p>
+          <div class="text-center">
+            <button type="button" id="btn-copy1" onclick="copyNumber1()" class="btn btn-outline-dark btn-sm btn-block"><i class="bi bi-geo-alt-fill"></i>  Lihat di Maps</button>
+          </div>
         </div>
 
-        <div class="date-frame fade fade-up">
+        <h1 class="save-date">SAVE the DATE</h1>
+
+        <div class="date-frame-bottom fade fade-up">
           <h1 class="date-title fade fade-zoom">Resepsi & Adat</h1>
           <br><br>
           <p class="fade fade-zoom">Sabtu</p>
@@ -131,18 +156,12 @@
           <p class="fade fade-zoom">11:00 - Selesai</p>
           <p class="fade fade-zoom">Gedung Serbaguna</p>
           <p class="fade fade-zoom">HKBP Balige</p>
+          <div class="text-center">
+            <button type="button" id="btn-copy1" onclick="copyNumber1()" class="btn btn-outline-dark btn-sm btn-block"><i class="bi bi-geo-alt-fill"></i> Lihat di Maps</button>
+          </div>
         </div>
         
 
-      </section>
-
-      <section class="word-section" style="margin-top: 50px;">
-        <p class="text-verse fade fade-down">
-          "Demikianlah mereka bukan lagi dua, melainkan satu. Karena itu, apa yang telah dipersatukan Allah, tidak boleh diceraikan manusia."
-        </p>
-        <p class="text-verse fade fade-up">
-          Matius 19:6:
-        </p>
       </section>
 
       <section class="galery-section">
@@ -172,11 +191,11 @@
 
       <!-- UCAPAN -->
       <section class="congrats-section">
-        <div class="divider">
+        <div class="divider fade fade-in">
           <span><b>Harapan dan Doa</b></span>
         </div>
-        <p class="title-congrats">Berikan ucapan dan doa untuk kami</p>
-          <form class="form-congrats" id="congratsForm">
+        <p class="title-congrats">Berikan Harapan dan doa untuk kami</p>
+          <div class="congrats-form fade fade-right">
             <div class="mb-3">
               <input type="text" class="form-control" id="name" placeholder="Nama Anda" required>
             </div>
@@ -184,71 +203,57 @@
               <textarea class="form-control" id="message" rows="3" placeholder="Ucapan dan Doa Anda" required></textarea>
             </div>
             <div class="mb-3">
-              <select class="form-select" aria-label="Default select example">
+              <select class="form-select" id="attendance" aria-label="Default select example">
                 <option value="Hadir">Hadir</option>
                 <option value="Tidak Hadir">Tidak Hadir</option>
               </select>
             </div>
-            <button type="submit" class="btn btn-primary">Kirim</button>
-          </form>
-          <div class="congrats-list">
-            <span class="heart">&hearts;</span>
-            &nbsp;
-            <div class="congrats-item">
-              <p class="congrats-name">Axel Sianturi</p>
-              <p class="congrats-desc">Dimana Awal Perjumpaan?</p>
-              <hr class="full">
-            </div>
+            <button id="saveBtn" class="flex-end btn btn-secondary w-500">
+                                <i class="fa fa-paper-plane" aria-hidden="true"></i> Kirim
+                            </button>
+          </div>
+          <div class="congrats-list fade fade-left" id="congratsList">
+            <ul class="wishes-list" id="wishesList"></ul>
           </div>
 
           <div class="gift-section">
-            <div class="divider">
+            <div class="divider fade fade-in">
               <span><b>Wedding Gift</b></span>
             </div>
-            <p class="title-congrats">Tanpa mengurangi rasa hormat, bagi anda yang ingin memberikan tanda kasih untuk kami, dapat melalui:</p>
+            <p class="gift-desc fade fade-up">Tanpa mengurangi rasa hormat, bagi anda yang ingin memberikan tanda kasih untuk kami, dapat melalui:</p>
             <div class="container">
                 <div class="row">
                 
-                <!-- Card 1 -->
-                <div class="col-12 account-banking-card mb-4">
-                    <div class="d-flex justify-content-between desc-card">
-                    <p class="mb-0 account-bank-name"><b>Debit Card</b></p>
-                    <p class="mb-0 account-bank-name"><b>Bank Mandiri</b></p>
-                    </div>
-                    <br>
-                    <div class="d-flex justify-content-between desc-card">
-                    <div class="justify-content-start">
-                        <p class="account-bank-surename"><b>ELGA TRI RAHELIA MANURUNG</b></p>
-                        <p class="account-bank-number" id="account-number-bank1"><b>No. Rekening : 1070015523196</b></p>
-                    </div>
-                    <div>
+                  <!-- Card 1 -->
+                  <div class="col-12 account-banking-card mb-4 fade fade-zoom">
+                      <div class="d-flex justify-content-between">
                         <img src="assets/chip-card-bg.png" class="chip-img">
-                    </div>
-                    </div>
-                    <div class="text-center">
-                    <button type="button" id="btn-copy1" onclick="copyNumber1()" class="btn btn-outline-dark btn-sm btn-block">Salin Nomor Rekening</button>
-                    </div>
-                </div>
+                        <img src="assets/bca.png" class="bank-logo">
+                      </div>
+                      <br>
+                      <div class="desc-card">
+                        <p class="account-bank-surename"><b>GABRIEL BENNI PERNADI PANJAITAN</b></p>
+                        <p class="account-bank-number" id="account-number-bank1"><b>No. Rekening : 5470746612</b></p>
+                      </div>
+                      <div class="text-center">
+                        <button type="button" id="btn-copy1" onclick="copyNumber1()" class="btn btn-outline-dark btn-sm btn-block">Salin Nomor Rekening</button>
+                      </div>
+                  </div>
 
-                <div class="col-12 account-banking-card mb-4">
-                    <div class="d-flex justify-content-between desc-card">
-                    <p class="mb-0 account-bank-name"><b>Debit Card</b></p>
-                    <p class="mb-0 account-bank-name"><b>Bank Mandiri</b></p>
+                  <div class="col-12 account-banking-card mb-4 fade fade-zoom">
+                    <div class="d-flex justify-content-between">
+                      <img src="assets/chip-card-bg.png" class="chip-img">
+                      <img src="assets/mandiri.png" class="bank-logo">
                     </div>
                     <br>
-                    <div class="d-flex justify-content-between desc-card">
-                    <div class="justify-content-start">
-                        <p class="account-bank-surename"><b>ELGA TRI RAHELIA MANURUNG</b></p>
-                        <p class="account-bank-number" id="account-number-bank1"><b>No. Rekening : 1070015523196</b></p>
-                    </div>
-                    <div>
-                        <img src="assets/chip-card-bg.png" class="chip-img">
-                    </div>
+                    <div class="desc-card">
+                      <p class="account-bank-surename"><b>SONDANG JELITA SIPAYUNG</b></p>
+                      <p class="account-bank-number" id="account-number-bank2"><b>No. Rekening : 1070020649143</b></p>
                     </div>
                     <div class="text-center">
-                    <button type="button" id="btn-copy1" onclick="copyNumber1()" class="btn btn-outline-dark btn-sm btn-block">Salin Nomor Rekening</button>
+                      <button type="button" id="btn-copy2" onclick="copyNumber2()" class="btn btn-outline-dark btn-sm btn-block">Salin Nomor Rekening</button>
                     </div>
-                </div>
+                  </div>
 
                 </div>
             </div>
@@ -268,6 +273,7 @@
           <h6 class="text-verse-end fade fade-right">Atas Kehadiran serta doa dan dukungan Bapak/Ibu dan saudara/i sekalian, kami ucapkan terima kasih</h6>
           <br><br><br>
           <h2 class="text-end-section fade fade-up">
+            <p class="text-verse-end">Keluarga besar</p>
             Gabriel <span class="heart">&hearts;</span> Sondang
           </h2>
           <hr>
@@ -285,6 +291,7 @@
 </div>
 
 <script src="main.js"></script>
+<script type="module" src="firebase.js"></script>
 
 
 

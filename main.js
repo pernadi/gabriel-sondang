@@ -1,3 +1,15 @@
+const navEntries = performance.getEntriesByType("navigation");
+  if (navEntries.length > 0 && navEntries[0].type === "reload") {
+    window.location.replace("index.html");
+  }
+
+  // Cegah user kembali ke halaman ini
+  window.history.pushState(null, "", window.location.href);
+  window.onpopstate = function () {
+    window.location.replace("index.html");
+  };
+
+
 const targetDate = new Date("April 11, 2026 10:00:00").getTime();
 
 setInterval(() => {
@@ -19,39 +31,6 @@ setInterval(() => {
 }, 1000);
 
 
-//Change background image for hero section
-// Daftar gambar background
-const backgrounds = [
-  'assets/wedding/wedding_17.jpg',
-  'assets/wedding/wedding_18.jpg',
-  'assets/wedding/wedding_19.jpg',
-];
-
-let current = 0;
-
-const bg1 = document.querySelector('.bg1');
-const bg2 = document.querySelector('.bg2');
-
-let activeLayer = bg1;
-let nextLayer = bg2;
-
-function changeBackground() {
-  nextLayer.style.backgroundImage = `url('${backgrounds[current]}')`;
-
-  nextLayer.classList.add('active');
-  activeLayer.classList.remove('active');
-
-  // swap layer
-  [activeLayer, nextLayer] = [nextLayer, activeLayer];
-
-  current = (current + 1) % backgrounds.length;
-}
-
-// initial
-changeBackground();
-
-// interval
-setInterval(changeBackground, 5000);
 
 //animation fade
 const elements = document.querySelectorAll('.fade');
@@ -60,11 +39,50 @@ const scrollContainer = document.querySelector('.phone-screen');
 function showOnScroll() {
   elements.forEach(el => {
     const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 50) {
+    const containerHeight = scrollContainer.clientHeight;
+
+    if (rect.top < containerHeight - 50 && rect.bottom > 0) {
       el.classList.add('active');
+    } else {
+      el.classList.remove('active');
     }
   });
 }
 
 scrollContainer.addEventListener('scroll', showOnScroll);
 window.addEventListener('load', showOnScroll);
+
+//load screen
+window.addEventListener('load', function() {
+      const loadingScreen = document.getElementById('loading-screen');
+      
+      // Fade out loading screen
+      loadingScreen.style.opacity = '0';
+      
+      // Hapus dari DOM setelah transisi selesai
+      setTimeout(() => {
+        loadingScreen.style.display = 'none';
+      }, 600);
+    });
+
+function copyNumber1() {
+      const number = document.getElementById("account-number-bank1").innerText;
+      navigator.clipboard.writeText(number)
+        .then(() => {
+          alert("Nomor berhasil disalin: " + number);
+        })
+        .catch(err => {
+          console.error("Gagal menyalin: ", err);
+        });
+    }
+
+function copyNumber2() {
+      const number = document.getElementById("account-number-bank2").innerText;
+      navigator.clipboard.writeText(number)
+        .then(() => {
+          alert("Nomor berhasil disalin: " + number);
+        })
+        .catch(err => {
+          console.error("Gagal menyalin: ", err);
+        });
+    }

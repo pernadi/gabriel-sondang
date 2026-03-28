@@ -10,7 +10,85 @@ body {
   overflow: hidden;
   background: #000;
   font-family: sans-serif;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  background: url("assets/frame_flower.png") center/cover no-repeat;
 }
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+#loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.6s ease;
+    }
+
+    .loader {
+      width: 80px;
+      height: 80px;
+      border: 6px solid #333;
+      border-top: 6px solid #fff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .loading-text {
+      color: white;
+      margin-top: 20px;
+      font-size: 1.1rem;
+    }#loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.6s ease;
+    }
+
+    .loader {
+      width: 80px;
+      height: 80px;
+      border: 6px solid #333;
+      border-top: 6px solid #fff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .loading-text {
+      color: white;
+      margin-top: 20px;
+      font-size: 1.1rem;
+    }
 
 /* Background */
 .wedding-bg {
@@ -74,12 +152,23 @@ body {
   height: 100vh;
   position: relative;
   overflow: hidden;
-
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  background: url("assets/wedding/wedding_13.JPG") center/cover;
   padding-bottom: 80px;
-  z-index: 2;
+}
+
+.section-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to top,
+    rgb(0, 0, 0),  /* bawah gelap */
+    rgba(0, 0, 0, 0.38),  /* tengah */
+    rgba(0, 0, 0, 0.19)     /* atas transparan */
+  );
+
+  z-index: 1;
 }
 
 /* background layer */
@@ -99,9 +188,25 @@ body {
 }
 
 /* biar konten di atas */
-.section-hero .content {
+.section-hero .content-top {
+  margin-top: 100px;
   position: relative;
   z-index: 2;
+}
+
+.section-hero .content-bottom {
+  position: absolute;           /* Ubah ke absolute agar bisa dikontrol bottom */
+  bottom: 40px;                 /* Jarak dari bawah parent */
+  left: 50%;
+  transform: translateX(-50%);  /* Agar tetap center secara horizontal */
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;          /* atau flex-end jika ada beberapa item */
+  justify-content: center;
+  width: 100%;                  /* supaya centering lebih mudah */
+  padding: 0 20px;
 }
 
 .section-hero .overlay {
@@ -129,15 +234,6 @@ body {
   z-index: -1;
 }
 
-.word-section h1 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 3.5rem;
-  text-align: center;
-  justify-content: center;
-  color: #dc3d11;
-  text-shadow: 0 0 10px rgba(212,175,55,0.6);
-}
-
 .text-date{
   font-size: 1.7rem;
   text-align: center;
@@ -151,39 +247,43 @@ body {
   color: #000000;
   justify-content: center;
   text-align: center;
-  font-family: 'Playfair Display', serif;
+  font-family: fantasy;
   text-shadow: 0 0 5px rgba(227,123,123,0.5);
 }
 
-
-
-
-
-
-.gorga-top{
-  transform: rotate(180deg);
-  width: 100%;
-  height: auto;
-}
-
-.gorga-bottom{
-  width: 100%;
-  height: auto;
-}
-
 /* COUPLE-SECTION*/
-/* SECTION */
 .couple-section {
   background: url("assets/bride_bg.jpeg") center/cover;
-  text-align: center;
+  border-radius: 50px 50px 0 0;
   position: relative;
+  height: 100%;
+  padding-top: 24px;
+}
+
+.couple-section h3 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.5rem;
+  text-align: center;
+  justify-content: center;
+  color: #0b0b0b;
+  text-shadow: 0 0 10px rgba(212,175,55,0.6);
+}
+
+.row.flex-nowrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.row.flex-nowrap > [class*="col"] {
+  flex-shrink: 0;
 }
 
 /* TITLE */
 .title {
   font-size: 2rem;
-  color: #d4af37;
+  color: #0b0b0b;
   margin: 20px 0px 60px;
+  font-family: 'Playfair Display', serif;
   letter-spacing: 3px;
 }
 
@@ -201,44 +301,53 @@ body {
   width: auto;
   padding: 90px 20px 25px; /* penting untuk ruang foto */
   border-radius: 20px;
-  backdrop-filter: blur(10px);
-  background: url("assets/flower_frame.png") center/cover;
-
-  box-shadow: 
-    inset 0 0 10px rgba(255, 217, 0, 0.56);
-
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
   position: relative;
   transition: 0.3s;
   margin-top: 70px;
   margin-bottom: 30px;
 }
-
-.person-card:hover {
-  transform: translateY(-10px);
+.person-card h5{
+  font-size: 1.1rem;
+  color: #3e1818;
+  font-weight: 600;
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-shadow: 0 0 10px rgba(254, 254, 254, 0.6);
+}
+.person-card p{
+  font-size: 0.8rem;
+  color: #3e1818;
+  font-weight: 200;
+  text-align: center;
+  font-family:'Courier New', Courier, monospace;
+  text-shadow: 0 0 10px rgba(254, 254, 254, 0.6);
 }
 
 /* FOTO OVERLAP */
 .frame {
-  position: absolute;
-  top: -70px;
-  left: 50%;
-  transform: translateX(-50%);
+  width: auto;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  backdrop-filter: blur(30px);
+  margin-top: 30px;
 
-  width: 130px;
-  height: 130px;
+  box-shadow: 
+    inset 0 10px 10px rgba(88, 88, 87, 0.56);
 
-  border-radius: 50%;
-  border-width: 0px;
-  padding: 3px;
-
-  box-shadow: 0 0px 0px rgba(0,0,0,0.5);
+  position: relative;
+  transition: 0.3s;
 }
 
 .frame img {
-  width: 100%;
-  height: 100%;
-  border-radius: 60%;
+  width: 500px;
+  height: 250px;
   object-fit: cover;
+  padding: 5px;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
 }
 
 /* TEXT */
@@ -247,9 +356,8 @@ body {
   font-size: 1.1rem;
   color: #3e1818;
   font-weight: 600;
-  font-family: 'Cormorant Garamond', serif;
-  /* .color: #d4af37; */
-  text-shadow: 0 0 10px rgba(212,175,55,0.6);
+  font-family:'Courier New', Courier, monospace;
+  text-shadow: 0 0 10px rgba(254, 254, 254, 0.6);
 }
 
 .desc {
@@ -275,8 +383,10 @@ body {
 @media (max-width: 480px) {
 
   .couple-container {
-    flex-direction: column;
+    flex-direction: row;
   }
+
+
 
   .love {
     transform: rotate(90deg);
@@ -287,28 +397,7 @@ body {
     padding-top: 80px;
   }
 
-  .frame {
-  position: absolute;
-  top: -70px;
-  left: 50%;
-  transform: translateX(-50%);
-
-  width: 130px;
-  height: 130px;
-
-  border-radius: 50%;
-  border-width: 0px;
-  padding: 3px;
-
-  box-shadow: 0 0px 0px rgba(0,0,0,0.5);
-}
-
-.frame img {
-  width: 100%;
-  height: 100%;
-  border-radius: 60%;
-  object-fit: cover;
-}
+  
 
   .title {
     font-size: 1.6rem;
@@ -323,12 +412,16 @@ body {
 /* TEXT */
 .text-style {
   font-size: 1.8rem;
-  color: #e37b7b;
+  color: #fbfafa;
   font-family: cursive;
 }
 
 .text-holy {
   color: #fff;
+  font-size: 0.8rem;
+  font-family: 'Courier New', Courier, monospace;
+  justify-items: center;
+  text-align: center;
 }
 
 /* IMAGE */
@@ -369,11 +462,12 @@ body {
 .title {
   font-size: 1.8rem;
   margin-bottom: 20px;
-  color: gold;
+  font-family:'Courier New', Courier, monospace;
+  color: rgb(6, 6, 6);
 }
 
 .date-section {
-  background-color: white;
+  background-color: rgb(181, 181, 181);
   padding: 40px 20px;
   justify-content: center;
   justify-items: center;
@@ -391,22 +485,49 @@ body {
 .title-date {
   font-size: 1.5rem;
   color: #a33604;
-  font-family: 'Playfair Display', serif;
+  font-family:'Courier New', Courier, monospace;
   text-align: center;
   text-shadow: 0 0 10px rgba(212,175,55,0.6);
+}
+
+.save-date {
+  font-size: 1.3rem;
+  color: #000000;
+  font-family:'Courier New', Courier, monospace;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
 }
 
 .date-frame{
   margin-top: 50px;
   width: 100%;
+  height: auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  justify-items: center;
+  justify-content: center;
+  line-height: 20px;
+  margin-bottom: 20px;
+  z-index: 2;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+  background-size: 50%;
+  background-position: left;
+}
+
+.date-frame-bottom{
+  margin-top: 20px;
+  width: 100%;
   padding: 20px;
-  border-radius: 50px;
-  justify-items: end;
+  padding-bottom: 32px;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  justify-items: center;
   justify-content: center;
   line-height: 20px;
   z-index: 2;
-  box-shadow: 0 0 40px rgba(123, 123, 123, 0.3);
-  background: url("assets/ulos.png") center/cover no-repeat;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
   background-size: 50%;
   background-position: left;
 }
@@ -418,7 +539,18 @@ body {
   justify-items: center;
   text-transform: uppercase;
   color: #020202;
-  font-family: 'Playfair Display', serif;
+  font-family:'Courier New', Courier, monospace;
+  text-shadow: 0 0 5px rgba(227,123,123,0.5);
+}
+
+.date-frame-bottom p {
+  font-size: 1.2rem;
+  text-align: center;
+  justify-content: center;
+  justify-items: center;
+  text-transform: uppercase;
+  color: #020202;
+  font-family:'Courier New', Courier, monospace;
   text-shadow: 0 0 5px rgba(227,123,123,0.5);
 }
 
@@ -434,7 +566,7 @@ body {
 .countdown-card {
   width: 80px;
   height: 80px;
-  border-radius: 50%;
+  border-radius: 20%;
 
   display: flex;
   flex-direction: column;
@@ -458,7 +590,7 @@ body {
 .countdown-card span {
   font-size: 1.2rem;
   font-weight: bold;
-  color: #a33604; /* gold */
+  color: #ffffff; /* gold */
   line-height: 1;
   margin-top: 20%;
 }
@@ -468,7 +600,7 @@ body {
   font-size: 0.7rem;
   margin-top: 4px;
   letter-spacing: 1px;
-  color: #a33604;
+  color: #fcfcfc;
 }
 
 /* HOVER EFFECT */
@@ -575,14 +707,11 @@ body {
       padding-top: 100px;
       background-size: cover;
       background-position: center;
-      padding-top: 200px;
+      padding-top: 20px;
       padding-left: 20px;
       padding-right: 20px;
-      border-top-left-radius: 50px;
-      border-top-right-radius: 50px;
-      padding-bottom: 200px;
-      background: url("assets/flower_frame.png") center/cover no-repeat;
-      background-color: rgb(255, 255, 255);
+      padding-bottom: 20px;
+      background-color: rgb(146, 146, 146);
     }
     
     
@@ -667,16 +796,33 @@ body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background-color: rgba(75, 73, 64, 0.647);
+  background: url("assets/bride_bg.jpeg") center/cover;
   z-index: 1;
 }
 
+.congrats-form{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 400px;
+  margin: auto;
+}
+
 .title-congrats {
-  font-size: 1.2rem;
-  color: #ffffff;
-  font-family: 'Playfair Display', serif;
-  text-shadow: 0 0 10px rgba(227,123,123,0.5);
+  font-size: 1.0rem;
+  color: #848282;
+  font-family: 'Courier New', Courier, monospace;
   text-align: center;
+}
+
+.gift-desc {
+  font-size: 0.9rem;
+  color: #000000;
+  font-family:'Courier New', Courier, monospace;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  text-align: center;
+  font-weight: 600;
+  text-spacing-trim: space-first;
 }
 
 .form-congrats{
@@ -685,19 +831,21 @@ body {
   margin-right: 16px;
 }
 .congrats-list {
-  margin-top: 20px;
-  height: 300px;
-  line-height: 1.3;
-  padding: 10px;
-  margin-left: 16px;
-  margin-right: 16px;
-  border-radius: 12px;
-  overflow-y: auto;
-  background-color: rgba(45, 39, 39, 0.5);
-  padding-right: 10px;
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.7);
-  display: flex;
+  margin-top: 50px;
+  height: 400px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border: 12px;
+  margin-left: 12px;
+  margin-right: 12px;
+  line-height: 20px;
   margin-bottom: 50px;
+  border-radius: 12px;
+  z-index: 2;
+  box-shadow: 0 0 40px rgba(1, 1, 1, 0.3);
+  background-size: 50%;
+  background-position: left;
+  overflow-y: auto;
 }
 .congrats-list p {
   font-size: 0.9rem;
@@ -706,11 +854,13 @@ body {
 }
 .congrats-name {
   font-weight: bold;
-  color: #f4e919;
+  color: #000000;
+  font-size: 14px;
 }
 .congrats-desc {
   font-weight: bold;
-  color: #fefefe;
+  color: #9f9d9d;
+  font-size: 12px;
 }
 .congrats-list hr.full {
   width: 100%;
@@ -723,8 +873,7 @@ body {
 }
 
 .gift-section {
-  background: url("assets/frame_flower.png") center/cover no-repeat;
-  background-color: rgb(254, 252, 252);
+  background-color: rgb(146, 146, 146);
   padding: 40px 20px;
   height: auto;
   border-top-left-radius: 50px;
@@ -735,23 +884,22 @@ body {
 }
 .account-banking-card{
     background: rgba(255, 255, 255, 0.1);
-    padding: 50px;
+    padding: 20px;
     border-radius: 12px;
     min-width: 70px;
-    align-items: center;
-    justify-content: center;
+    line-height: 10px;
     color: #fff;
     backdrop-filter: blur(25px);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 6px rgba(255, 255, 255, 0.3);
   }
 
   .account-bank-name{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Courier New', Courier, monospace;
     color: black;
   }
 
   .account-bank-surename{
-    font-family: 'Playfair Display', serif;
+    font-family: 'Courier New', Courier, monospace;
     color: black;
     font-size: 14px;
   }
@@ -767,8 +915,15 @@ body {
     padding-right: 30px;
   }
 
+  .bank-logo{
+    width: 100px;
+    height: auto;
+  }
+
   .desc-card{
-    padding-left: 20px;
+    justify-content: flex-start;
+    text-align: start;
+    padding-left: 10px;
     padding-right: 20px;
   }
 
@@ -786,7 +941,7 @@ body {
   align-items: flex-end;
   justify-content: center;
   padding-bottom: 200px;
-  background: url("assets/wedding/wedding_12.JPG") center/cover no-repeat;
+  background: url("assets/wedding/wedding_8.JPG") center/cover no-repeat;
 }
 .end-section .overlay-end {
   position: absolute;
@@ -820,8 +975,79 @@ body {
 .text-verse-end {
   font-size: 0.9rem;
   color: #ffffff;
+  padding: 16px;
   justify-content: center;
   text-align: center;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Courier New', Courier, monospace;
   text-shadow: 0 0 5px rgba(227,123,123,0.5);
 }
+
+.wishes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wishes-item {
+  padding: 14px 0;
+}
+
+.wishes-card {
+  display: flex;
+  gap: 5px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 12px;
+  transition: 0.25s ease;
+}
+
+.wishes-card:hover {
+  background: #f8f9fa;
+}
+
+.wishes-avatar {
+  width: 20px;
+  height: 20px;
+  background: #6c757d;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+.wishes-content {
+  flex: 1;
+}
+
+.wishes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.congrats-name {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.congrats-desc {
+  font-size: 14px;
+  color: #666;
+  margin: 4px 0 0;
+}
+
+.wishes-time {
+  font-size: 11px;
+  color: #aaa;
+}
+
+.badge {
+  margin-left: 6px;
+  font-size: 10px;
+}
+
