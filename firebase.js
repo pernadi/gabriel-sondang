@@ -47,7 +47,7 @@ import { getFirestore, collection, addDoc, onSnapshot, query, orderBy } from "ht
 
   // 🔹 Tampilkan data wishes real-time
   const wishesList = document.getElementById("wishesList");
-  const q = query(collection(db, "wishes_2"), orderBy("timestamp", "desc"));
+  const q = query(collection(db, "wedding_wishes"), orderBy("timestamp", "desc"));
 
   onSnapshot(q, (snapshot) => {
     wishesList.innerHTML = ""; // reset
