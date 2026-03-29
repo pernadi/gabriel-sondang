@@ -1,25 +1,3 @@
-// Daftar gambar background
-const backgrounds = [
-  'assets/wedding/wedding_1.jpg'
-];
-
-
-let current = 0;
-const hero = document.getElementById('hero');
-
-// Fungsi ganti background
-function changeBackground() {
-  hero.style.backgroundImage = `url('${backgrounds[current]}')`;
-  current = (current + 1) % backgrounds.length;
-}
-
-// Ganti gambar tiap 5 detik
-setInterval(changeBackground, 5000);
-
-// Set gambar awal
-changeBackground();
-
-
 document.querySelectorAll('.btn-open-invitation-link').forEach(button => {
   button.addEventListener('click', function(e) {
     document.getElementById('bg-music').play();
