@@ -27,7 +27,7 @@ import { getFirestore, collection, addDoc, onSnapshot, query, orderBy } from "ht
     }
 
     try {
-      await addDoc(collection(db, "wishes_2"), {
+      await addDoc(collection(db, "wedding_wishes"), {
         name: name,
         message: message,
         attendance: attendance,
