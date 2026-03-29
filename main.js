@@ -86,3 +86,10 @@ function copyNumber2() {
           console.error("Gagal menyalin: ", err);
         });
     }
+
+function openMaps() {
+  const lat = 2.330939;
+  const lng = 99.067383;
+
+  window.open(`https://www.google.com/maps?q=${lat},${lng}`, "_blank");
+}

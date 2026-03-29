@@ -418,6 +418,14 @@ html, body {
 
 .text-holy {
   color: #fff;
+  font-size: 1.2rem;
+  font-family: 'Courier New', Courier, monospace;
+  justify-items: center;
+  text-align: center;
+}
+
+.text-holy-desc {
+  color: #fff;
   font-size: 0.8rem;
   font-family: 'Courier New', Courier, monospace;
   justify-items: center;
@@ -509,7 +517,7 @@ html, body {
   justify-items: center;
   justify-content: center;
   line-height: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   z-index: 2;
   box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
   background-size: 50%;
