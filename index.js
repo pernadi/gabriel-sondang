@@ -1,8 +1,6 @@
 // Daftar gambar background
 const backgrounds = [
-  'assets/wedding/wedding_1.jpg',
-  'assets/wedding/wedding_2.jpg',
-  'assets/wedding/wedding_9.jpg',
+  'assets/wedding/wedding_1.jpg'
 ];
 
 
