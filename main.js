@@ -88,8 +88,8 @@ function copyNumber2() {
     }
 
 function openMaps() {
-  const lat = 2.330939;
-  const lng = 99.067383;
+  const lat = 2.115354;
+  const lng = 99.545097;
 
   window.open(`https://www.google.com/maps?q=${lat},${lng}`, "_blank");
 }
