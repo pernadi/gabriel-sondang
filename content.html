@@ -20,7 +20,7 @@
 </head>
 <body>
 
-<audio id="bg-music" src="audio/music.mp3" preload="none" loop></audio>
+<audio id="bg-music" src="audio/music.mp3" loop preload="none"></audio>
 
 <!-- Loading Screen -->
 <div id="loading-screen">
@@ -293,14 +293,34 @@
   });
 
   // Music - play only after user interaction (lebih ringan)
-  let musicPlayed = false;
-  document.addEventListener('touchstart', () => {
-    if (!musicPlayed) {
-      const music = document.getElementById('bg-music');
-      music.play().catch(() => {});
-      musicPlayed = true;
+  const bgMusic = document.getElementById('bg-music');
+  let musicHasPlayed = false;
+
+  function startMusic() {
+    if (musicHasPlayed) return;
+
+    bgMusic.play()
+      .then(() => {
+        musicHasPlayed = true;
+        console.log("🎵 Musik background berhasil diputar");
+      })
+      .catch((err) => {
+        console.log("❌ Musik masih diblokir browser:", err);
+      });
+  }
+
+  // Trigger dari berbagai interaksi user
+  document.addEventListener('touchstart', startMusic, { once: true });
+  document.addEventListener('click', startMusic, { once: true });
+  document.addEventListener('scroll', startMusic, { once: true });
+  document.addEventListener('keydown', startMusic, { once: true });
+
+  // Fallback jika user lama tidak berinteraksi
+  setTimeout(() => {
+    if (!musicHasPlayed) {
+      console.log("⏳ Menunggu interaksi user untuk memutar musik...");
     }
-  }, { once: true });
+  }, 3000);
 </script>
 
 </body>
