@@ -71,17 +71,22 @@ body.fade-out {
 /* Hero Section */
 .hero-section {
   min-height: 100vh;
-  overflow: hidden;
-  background: #000;
-  font-family: sans-serif;
-  overflow-x: hidden;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  background: url("assets/wedding/wedding_6.JPG") center/cover no-repeat;
-  display: flex;
-  flex-direction: column; 
-  justify-content: space-between; 
-  padding: 40px 20px;
+overflow: hidden;
+background: #000;
+font-family: sans-serif;
+overflow-x: hidden;
+scrollbar-width: none;
+-ms-overflow-style: none;
+
+background-image: url("assets/wedding/wedding_25.jpeg");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+
+display: flex;
+flex-direction: column; 
+justify-content: space-between; 
+padding: 40px 20px;
 }
 
 .hero-section .overlay {

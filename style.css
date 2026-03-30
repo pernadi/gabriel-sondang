@@ -13,7 +13,7 @@ body {
   overflow-x: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  background: url("assets/frame_flower.png") center/cover no-repeat;
+  background: url("assets/flower_frame.png") center/cover no-repeat;
 }
 
 body::-webkit-scrollbar {
@@ -165,7 +165,7 @@ html, body {
     to top,
     rgb(0, 0, 0),  /* bawah gelap */
     rgba(0, 0, 0, 0.38),  /* tengah */
-    rgba(0, 0, 0, 0.19)     /* atas transparan */
+    rgba(251, 251, 251, 0)     /* atas transparan */
   );
 
   z-index: 1;
@@ -213,7 +213,7 @@ html, body {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: rgba(0, 0, 0, 0.43);
+  background: rgba(3, 3, 3, 0);
 }
 
 /* WORD-SECTION */
@@ -949,13 +949,13 @@ html, body {
   align-items: flex-end;
   justify-content: center;
   padding-bottom: 200px;
-  background: url("assets/wedding/wedding_8.JPG") center/cover no-repeat;
+  background: url("assets/wedding/wedding_31.JPG") center/cover no-repeat;
 }
 .end-section .overlay-end {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: rgba(46, 46, 46, 0.188);
+  background: rgba(78, 78, 78, 0);
 }
 .text-end-section {
   font-size: 1.8rem;
@@ -973,8 +973,8 @@ html, body {
   background: linear-gradient(
     to top,
     rgb(0, 0, 0),  /* bawah gelap */
-    rgba(0, 0, 0, 0.644),  /* tengah */
-    rgba(0, 0, 0, 0.369)     /* atas transparan */
+    rgba(0, 0, 0, 0.495),  /* tengah */
+    rgba(0, 0, 0, 0)     /* atas transparan */
   );
 
   z-index: 1;
@@ -985,6 +985,7 @@ html, body {
   color: #ffffff;
   padding: 16px;
   justify-content: center;
+  font-weight: 800;
   text-align: center;
   font-family: 'Courier New', Courier, monospace;
   text-shadow: 0 0 5px rgba(227,123,123,0.5);
