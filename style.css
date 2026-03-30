@@ -13,7 +13,7 @@ body {
   overflow-x: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  background: url("assets/flower_frame.png") center/cover no-repeat;
+  background: url("assets/flower_frame.webp") center/cover no-repeat;
 }
 
 body::-webkit-scrollbar {
@@ -120,7 +120,7 @@ html, body {
   height: 100vh;
   position: relative;
   overflow: hidden;
-  background: url("assets/wedding/wedding_13.JPG") center/cover;
+  background: url("assets/wedding/wedding_13.webp") center/cover;
   padding-bottom: 80px;
 }
 
@@ -917,7 +917,7 @@ html, body {
   align-items: flex-end;
   justify-content: center;
   padding-bottom: 200px;
-  background: url("assets/wedding/wedding_31.JPG") center/cover no-repeat;
+  background: url("assets/wedding/wedding_31.webp") center/cover no-repeat;
 }
 .end-section .overlay-end {
   position: absolute;
