@@ -247,7 +247,7 @@ html, body {
   color: #000000;
   justify-content: center;
   text-align: center;
-  font-family: fantasy;
+  font-family: 'Playfair Display', serif;
   text-shadow: 0 0 5px rgba(227,123,123,0.5);
 }
 
