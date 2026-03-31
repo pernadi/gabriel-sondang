@@ -9,6 +9,41 @@ const navEntries = performance.getEntriesByType("navigation");
     window.location.replace("index.html");
   };
 
+const boxes = document.querySelectorAll('.hero-section');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.2 }); // threshold 0.2 = 20% elemen terlihat
+
+  boxes.forEach(box => observer.observe(box));
+
+
+    // Ambil query parameter dari URL
+    const params = new URLSearchParams(window.location.search);
+    const nama = params.get("kepada") || "Tamu Undangan";
+
+    // Tampilkan di elemen HTML
+    document.getElementById("guestName").textContent = nama;
+
+
+    //load screen
+    window.addEventListener('load', function() {
+      const loadingScreen = document.getElementById('loading-screen');
+      
+      // Fade out loading screen
+      loadingScreen.style.opacity = '0';
+      
+      // Hapus dari DOM setelah transisi selesai
+      setTimeout(() => {
+        loadingScreen.style.display = 'none';
+      }, 600);
+    });
+
+
 
 const targetDate = new Date("April 11, 2026 10:00:00").getTime();
 
@@ -51,6 +86,7 @@ function showOnScroll() {
 
 scrollContainer.addEventListener('scroll', showOnScroll);
 window.addEventListener('load', showOnScroll);
+window.addEventListener('click', showOnScroll)
 
 //load screen
 window.addEventListener('load', function() {

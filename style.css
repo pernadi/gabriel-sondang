@@ -71,7 +71,7 @@ html, body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 420px;
+  width: 520px;
   height: 100vh;
 
   transform: translate(-50%, -50%);
@@ -95,8 +95,16 @@ html, body {
 /* ================= SCREEN ================= */
 .phone-screen {
   height: 100%;
-  overflow-y: auto;
+  overflow-y: hidden;
+  transition: overflow-y 0.5s;
+  scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch; /* smooth iOS */
+}
+
+/* Setelah opening hilang */
+#main-invitation {
+  display: none;
+  min-height: 100vh
 }
 
 /* ================= CONTENT ================= */
@@ -115,15 +123,138 @@ html, body {
   text-align: center;
 }
 
+.hero-section {
+  min-height: 100vh;
+  background: #000;
+  font-family: sans-serif;
+  
+
+  background-image: url("assets/wedding/wedding_25.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-between; 
+  padding: 40px 20px;
+}
+
+.hero-section .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  animation: fadeIn 2s ease forwards;
+  opacity: 0;
+}
+
+.hero-top h6 {
+  margin: 0;
+  font-weight: 300;
+}
+
+.hero-top h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 64px;
+  margin: 10px 0;
+}
+
+.hero-bottom h6 {
+  margin: 4px 0;
+  font-weight: 300;
+}
+
+.invitation-for {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 10px 0 20px;
+}
+
+.hero-bottom h3 {
+  margin-bottom: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.btn-open-invitation {
+  margin-top: 30px;
+  font-size: 16px;
+  height: 50px;
+  font-weight: 600;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 12px 24px;
+  border-radius: 12px;
+  display: inline-flex;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #fff;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  animation: fadeIn 2s ease forwards;
+  opacity: 0;
+  gap: 10px;
+}
+.invitation-for{
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+}
+
+.invitation-content {
+  display: none;
+  min-height: 100vh;
+}
+
+/* Responsive */
+
+
+/* Animasi */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+
 /* HERO */
 .section-hero {
   height: 100vh;
   position: relative;
   overflow: hidden;
-  background: url("assets/wedding/wedding_13.webp") center/cover;
   padding-bottom: 80px;
+
+  background: url("assets/wedding/wedding_13.webp") center/cover no-repeat;
+
+  /* Animation */
+  animation: heroFade 1.5s ease forwards;
 }
 
+
+/* Background Zoom Smooth */
+.section-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: url("assets/wedding/wedding_13.webp") center/cover no-repeat;
+
+  transform: scale(1.15);
+  animation: heroZoom 12s ease forwards;
+
+  z-index: 0;
+}
+
+
+/* Gradient Overlay */
 .section-hero::before {
   content: "";
   position: absolute;
@@ -131,12 +262,41 @@ html, body {
 
   background: linear-gradient(
     to top,
-    rgb(0, 0, 0),  /* bawah gelap */
-    rgba(0, 0, 0, 0.38),  /* tengah */
-    rgba(251, 251, 251, 0)     /* atas transparan */
+    rgb(0, 0, 0),
+    rgba(0, 0, 0, 0.38),
+    rgba(251, 251, 251, 0)
   );
 
   z-index: 1;
+}
+
+
+/* Content di atas semua */
+.section-hero > * {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* Fade In Hero */
+@keyframes heroFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* Slow Zoom Background */
+@keyframes heroZoom {
+  from {
+    transform: scale(1.15);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 /* background layer */
@@ -221,11 +381,13 @@ html, body {
 
 /* COUPLE-SECTION*/
 .couple-section {
-  background: url("assets/bride_bg.jpeg") center/cover;
+  background: url("assets/bride_bg.jpeg") center/cover no-repeat;
   border-radius: 50px 50px 0 0;
   position: relative;
   height: 100%;
+  inset: 0;
   padding-top: 24px;
+  padding-bottom: 50px;
 }
 
 .couple-section h3 {
@@ -287,6 +449,7 @@ html, body {
 }
 .person-card p{
   font-size: 0.8rem;
+  font-weight: 600;
   color: #3e1818;
   font-weight: 200;
   text-align: center;
