@@ -124,8 +124,5 @@ function copyNumber2() {
     }
 
 function openMaps() {
-  const lat = 2.115354;
-  const lng = 99.545097;
-
-  window.open(`https://www.google.com/maps?q=${lat},${lng}`, "_blank");
+  window.open(`https://www.google.com/maps?q=2.3309129,99.0674336`, "_blank");
 }
